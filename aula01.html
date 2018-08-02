@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aula 01 - HTML</title>
+  </head>
+  <body>
+
+    <div class="titulos">
+      <h2 class="titulo-principal">Olá mundo!</h2>
+      <h6>Menor título</h6>
+    </div>
+
+
+    <div class="paragrafos">
+      <h2>Parágrafoss</h2>
+
+      <p>
+        Aqui a gente define um texto qualquer.
+        Em qualquer formatação.
+      </p>
+
+      <pre>
+        Aqui a gente define um texto qualquer.
+        Em qualquer formatação.
+      </pre>
+
+    </div>
+
+    <div class="links">
+      <h2>Links</h2>
+
+      <a href="http://www.uol.com.br/">UOL</a>
+      <br>
+      <a href=".teste/aula02.html">Link interno</a>
+    </div>
+
+    <div class="imagens">
+      <h2>Imagens</h2>
+
+      <img
+      src="http://dados.gov.br/wp/wp-content/uploads/2018/05/reitoria-horizontal-1.png"
+      alt="" height="50">
+
+    </div>
+
+    <div class="listas">
+
+      <h2>Listas não ordenadas</h2>
+      <ul>
+        <li>
+          <a href="https://www.w3schools.com/html/">
+            HTML
+          </a>
+        </li>
+
+        <li>CSS</li>
+
+        <li>JavaScript</li>
+
+        <li>
+          <!-- Um link pode ter uma imagem no lugar de uma palavra/texto -->
+          <a href="#" target="_blank">
+            <img
+            src="http://dados.gov.br/wp/wp-content/uploads/2018/05/reitoria-horizontal-1.png"
+            alt="" height="20">
+          </a>
+        </li>
+
+      </ul>
+
+      <h2>Lista ordenada</h2>
+
+      <ol>
+        <li>Cerveja</li>
+        <li>Arroz</li>
+        <li>Feijão</li>
+      </ol>
+    </div>
+
+    <div class="tabelas">
+      <h2>Tabelas</h2>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Fone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aqui um "for" faria todas as linhas da tabela -->
+          <tr>
+            <td>Rafael Zottesso</td>
+            <td>rafael.zottesso@ifpr.edu.br</td>
+            <td>(44) 99999-1234</td>
+          </tr>
+
+          <tr>
+            <td>Fulano de Tal</td>
+            <td colspan="2">fulano@ifpr.edu.br</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="iframe">
+      <h2>Iframe</h2>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7PPyuPn-iR8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    </div>
+
+    <div class="formularios">
+      <h2>Formulários</h2>
+
+      <!-- action é o destino dos dados deste form -->
+      <!-- method - como os dados serão enviados -->
+      <form class=""
+        action="https://www.google.com.br/search"
+        method="get">
+
+        <label for="busca">Buscar por:</label>
+        <input type="text" name="q" value="">
+
+        <input type="submit" value="Procurar">
+
+      </form>
+
+      <hr>
+
+      <h2>Cadastro</h2>
+      <form class="" action="" method="get">
+        <label for="nome">Nome</label><br>
+        <input type="text" name="nome" id="nome" value=""><br>
+
+        <label for="">E-mail</label><br>
+        <input type="email" name="email" value=""><br>
+
+        <label for="">Sexo</label><br>
+
+        <input type="radio" name="sexo" value="m" id="sexoM">
+        <label for="sexoM">Masculino</label><br>
+
+        <input type="radio" name="sexo" value="f" id="sexoF">
+        <label for="sexoF">Feminino</label><br>
+
+        <label for="">Tecnologias</label><br>
+
+        <input type="checkbox" name="tec" value="html" id="tec1">
+        <label for="tec1">HTML</label><br>
+
+        <input type="checkbox" name="tec" value="css" id="tec2">
+        <label for="tec2">CSS</label><br>
+
+        <input type="checkbox" name="tec" value="js" id="tec3">
+        <label for="tec3">JavaScript</label><br>
+
+        <button type="submit">Salvar</button>
+
+
+      </form>
+
+    </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </body>
+</html>
