@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.topo{
+  background-color: #DADADA;
+}
+
+.topo #menu{
+  width: 500px;
+  /*centralizar elementos*/
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.topo #menu li{
+  display: inline-block;
+}
+
+.topo #menu li a{
+  padding: 15px 30px;
+  display: block;
+  text-decoration: none;
+  color: #5D5D5D;
+}
+
+.topo #menu li a:hover{
+  background-color: #9A9A9A;
+  color: #333333;
+}
+
+.lateral{
+  float: left;
+  width: 20%;
+  min-width: 250px;
+}
+
+.conteudo{
+  float: left;
+}
+
+.rodape{
+  clear: both;
+  text-align: center;
+  background: #DADADA;
+  padding: 20px 10px;
+}
