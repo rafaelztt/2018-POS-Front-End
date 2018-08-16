@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 04: Introdução do jQuery</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        // Da foco no campo ao carregar o documento
+        $("#nome").focus();
+        // muda a borda do campo
+        $("#nome").css('border', 'solid 1px red');
+
+        // 2 a
+        // $("#btn-ola").click(function(){
+        //
+        //   // Uma variável pode ser uma referência
+        //   var nome = $("#nome");
+        //
+        //   if( nome.val() == "" ){
+        //
+        //     alert("Preencha o nome!");
+        //
+        //     // "Focar" o cursor no campo
+        //     nome.focus();
+        //
+        //   } else {
+        //     // Se foi preenchido, muda a cor da borda
+        //     $("#nome").css('border', 'solid 1px gray');
+        //
+        //     alert("Olá " + nome.val() );
+        //   }
+        //
+        // });
+
+        // 2 b
+        $("#btn-ola").click(function(){
+
+          // Uma variável pode ser uma referência
+          var nome = $("#nome");
+
+          if( nome.val() == "" ){
+
+            $("#msg").text("Preencha o nome!");
+
+            // "Focar" o cursor no campo
+            nome.focus();
+
+          } else {
+            // Se foi preenchido, muda a cor da borda
+            $("#nome").css('border', 'solid 1px gray');
+
+            $("#msg").html("<h2>Olá " + nome.val() + "</h2>" );
+          }
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <h3>Introdução ao jQuery</h3>
+
+    <label>Nome:</label>
+
+    <br>
+
+    <input type="text" name="nome" id="nome">
+
+    <button type="button" id="btn-ola">Olá</button>
+
+    <div id="msg"></div>
+
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 04: Introdução do jQuery</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        // $(seletor).evento(function(){
+        //
+        //     $(seletor).acao();
+        //
+        // });
+
+        // Todo seu código JS e/ou jQuery
+
+        alert("Tudo ok!");
+
+        // Criando uma variável
+        var nome = "Rafael";
+        var a =  20;
+
+        // Força a conversão de valores
+        // Cada variável é tipada dinamicamente
+        nome = parseFloat('10');
+
+        // Exemplo de condicional
+        if(a > 10){
+          alert(nome+a);
+        } else{
+          alert("Menor que 10");
+        }
+
+        // Definindo valores/textos
+
+        // Criação de uma variável que vai ter texto e HTML para ser utado depois
+        var conteudo = "<h2>";
+        conteudo +=     "Usando jQuery para popular o HTML...";
+        conteudo +=    "</h2>"
+
+        // Define um texto em um elemento
+        $(".titulo").text(conteudo);
+
+        alert("Só com text...");
+
+        // Adiciona um código HTML dentro de um elemento
+        $(".titulo").html(conteudo);
+
+        alert("Com .html()");
+
+        // Pega o valor do input que tem a propriedade name igual a nome
+        // e armazena em uma variável
+        var nome = $("input[name='nome']").val();
+
+        // Verifica se a variável nome é igual a vazio (se ela está vazia)
+        if( nome == ""){
+          alert("Nome não informado!");
+        }
+
+      });
+    </script>
+
+  </head>
+  <body>
+    <div class="titulo"></div>
+
+    Cadastro:
+    <input type="text" name="nome" value="Rafael">
+
+  </body>
+</html>

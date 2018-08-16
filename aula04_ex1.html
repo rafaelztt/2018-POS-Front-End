@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 04: Introdução do jQuery</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        // 1 a
+        // $("#btn").click(function(){
+        //
+        //     $("p").hide();
+        //
+        // });
+
+        // 1 b
+        // $("p").click(function(){
+        //
+        //     $(this).hide(1000);
+        //
+        // });
+
+        // 1 c
+        // $("#btn").click(function(){
+        //
+        //   $('p').toggle(1000);
+        //
+        // });
+
+        // 1 d
+        $("#btn-formatar").click(function(){
+
+          // formata todos os parágrafos com a cor abaixo
+          $("p").css("color","#717171");
+          // altera o tamanho da fonte do h3
+          $("h3").css("font-size", "25px");
+
+          // utiliza várias formatações de uma vez
+          $("p").css({
+            "color": "#313131",
+            "font-weight": "bold",
+            "text-decoration": "underline"
+            // "chave": "valor"
+          });
+
+        });
+
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <h3>Introdução ao jQuery</h3>
+
+    <p>Rafael Henrique Dalegrave Zottesso</p>
+
+    <p>rafael.zottesso@ifpr.edu.br</p>
+
+    <p>Desenvolvimento Front-End e Single Page Application</p>
+
+    <button type="button" id="btn">Testar</button>
+    <button type="button" id="btn-formatar">Formatar</button>
+
+  </body>
+</html>
