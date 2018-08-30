@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 05: jQuery</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        // Ao clicar em qualquer elemento com a classe "operacoes"
+        $(".operacoes").click(function(){
+
+          // Recebe os valores dos campos e converte para float
+          var a = parseFloat( $("#num1").val() );
+          var b = parseFloat( $("#num2").val() );
+
+          // Busca o ID do botão que foi clicado
+          var op = $(this).attr("id");
+
+          // Verifica o ID do botão para saber qual operação deve ser realizada
+          if(op == "somar")
+            var result = a + b;
+
+          else if(op == "subtrair")
+            var result = a - b;
+
+          else if(op == "multiplicar")
+            var result = a * b;
+
+          else(op == "dividir")
+            var result = a / b;
+
+          // Define o resultado lá no campo
+          $("#res").val(result);
+
+
+        });
+
+
+        // Ao clicar no botão revelar
+        $("#revelar").click(function(){
+
+          // Recebe o tipo atual do campo que é usado como senha
+          var tipo = $("#senha").attr("type");
+
+          // Se o tipo atual do campo for "text", muda ele pra password e altera
+          // o texto do botão
+          if(tipo == "text"){
+            $("#senha").attr("type","password");
+            $(this).text("Revelar");
+
+          // Se não, muda o tipo pra "text" e altera o texto do botão
+          } else {
+            $("#senha").attr("type","text");
+            $(this).text("Esconder");
+          }
+
+
+        });
+
+      });
+    </script>
+
+    <style media="screen">
+      input{
+        /* 1º Valor: cima e baixo 2º valor: esq e dir*/
+        margin: 5px 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h3>Calculadora</h3>
+
+
+    <input type="number" id="num1" value=""><br>
+    <input type="number" id="num2" value=""><br>
+
+    <br>
+    <button class="operacoes" type="button" id="somar">Somar</button>
+    <button class="operacoes" type="button" id="subtrair">Subtrair</button>
+    <button class="operacoes" type="button" id="multiplicar">Multiplicar</button>
+    <button class="operacoes" type="button" id="dividir">Dividir</button>
+    <br>
+    <br>
+
+    <span>Resultado:</span>
+    <br>
+    <input type="number" id="res" value=""><br>
+
+
+    <br>
+    <br>
+    <br>
+    <input type="password" name="" value="" id="senha">
+
+    <button type="button" id="revelar">Revelar</button>
+
+
+  </body>
+</html>
