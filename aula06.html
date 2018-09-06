@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Aula 06: Bootstrap e jQuery (Ajax)</title>
+
+  <!-- 1º importa o jQuery -->
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+
+  <!-- 2º Importar o Popper JS -->
+  <script src="js/popper.js" charset="utf-8"></script>
+
+  <!-- 3º Importar o js do bootstrap -->
+  <script src="bootstrap/bootstrap.js" charset="utf-8"></script>
+
+  <!-- Importar o CSS do Bootsrap -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.css" />
+
+  <!-- Implementar seu código -->
+  <script type="text/javascript">
+
+  // Garantir que o código será executado com o documento/página carregada (pronta)
+  $(document).ready(function(){
+
+    // Ao clicar no botão de busca...
+    $("#btnBuscar").click(function(){
+
+      // alert("Buscando...");
+
+      // Faz a consulta usand AJAX e espera um JSON como resposta
+      // $.getJSON(url, dadosEnviados, function(dadosResposta, status, xhr){});
+
+      $.getJSON(
+        // Define a URL
+        "http://localhost/pos_front_end/aula06_json.php",
+        // Define a função (o que fazer) com a resposta da requisição
+        function(dados){
+          // Processamento do retorno que é um objeto JSON...
+
+          // Pegamos os dados e trabalhamos como objetos, em que cada posição
+          // pode ser considerada como um atributo.
+
+          // Ex: dados.nome, dados.email, etc
+
+          // Adiciona conteúdo HTML na DIV
+          $("#resposta").html("<h4>Dados recebidos</h4>");
+
+          // Acrescenta conteúdo ao final da div, ou seja, não mexe no que tem lá,
+          // só adiciona conteúdo ao final dela
+          $("#resposta").append("<b>Nome:</b> " + dados.nome + "<br/>");
+
+          $("#resposta").append("<b>E-mail:</b> " + dados.email + "<br/>");
+
+          $("#resposta").append("<b>Telefone:</b> " + dados.fone + "<br/>");
+
+          $("#resposta").addClass("border border-success p-3 rounded mt-3");
+
+        }
+
+      );
+
+
+    });
+
+  });
+
+  </script>
+
+</head>
+<body>
+
+  <!-- Define o layout principal da página -->
+  <div class="container">
+
+    <h2>Introdução ao Bootstrap</h2>
+
+    <div class="row">
+
+      <div class="col-sm">
+        Menu Lateral
+      </div>
+
+      <div class="col-sm-9 border-left border-right">
+
+        <h3 class="text-primary border-bottom pb-2">Página inicial</h3>
+
+        <br>
+        <br>
+
+        <label for="">Consulta:</label>
+
+        <input type="text" id="nome" value=""/>
+
+        <a href="#" id="btnBuscar" class="btn btn-primary">Buscar</a>
+
+        <div id="resposta">
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <p>
+
+
+        </p>
+
+        <p>Exemplo de um parágrafo simples com o Bootstrap.</p>
+
+      </div>
+
+      <div class="col-sm">
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+</body>
+</html>
