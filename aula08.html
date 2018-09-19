@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Aula 08: Ajax para enviar e receber dados</title>
+  <!-- Importar scripts nesta ordem -->
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="js/popper.js" charset="utf-8"></script>
+  <script src="bootstrap/bootstrap.js" charset="utf-8"></script>
+  <!-- Importar o css -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("#consultar").click(function(){
+
+
+        $.getJSON(
+          "http://localhost/pos_front_end/aula08_json.php",
+          function(dados, status){
+
+              alert(dados.nome);
+          }
+        );
+
+      });
+
+    });
+  </script>
+</head>
+<body>
+
+  <!-- define o formato da página -->
+  <div class="container">
+
+    <!-- cria uma "linha" -->
+    <div class="row">
+
+      <div class="col-sm-2">
+        <h4>Menu Principal</h4>
+
+      </div>
+
+      <div class="col-sm">
+        <h3>Cadastro</h3>
+
+        <button type="button" id="consultar" class="btn btn-primary">
+          Consultar
+        </button>
+
+        <div class="" id="result">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
