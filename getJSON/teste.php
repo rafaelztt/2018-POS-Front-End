@@ -7,8 +7,8 @@
     $("button").click(function(){
 
 
-      // $.getJSON("http://localhost/json.php", {"id": 1}, function(data,status, xhr){
-      $.getJSON("http://localhost/json.php", function(data,status, xhr){
+      // $.getJSON("http://localhost/pos_front_end/getJSON/json.php", {"id": 1}, function(data,status, xhr){
+      $.getJSON("http://localhost/pos_front_end/getJSON/json.php", function(data,status, xhr){
 
         if(data.pessoas){
 

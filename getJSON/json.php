@@ -1,7 +1,7 @@
 <?php
 
 // Recebe os dados enviados pela requisição
-$id = $_REQUEST['id'];
+$id = @$_REQUEST['id'];
 
 // Faz a consulta no banco, etc
 if(isset($id)){

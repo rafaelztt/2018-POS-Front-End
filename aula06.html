@@ -29,10 +29,13 @@
 
       // Faz a consulta usand AJAX e espera um JSON como resposta
       // $.getJSON(url, dadosEnviados, function(dadosResposta, status, xhr){});
+      var dadosEnviados = {'nome': $("#nome").val()};
 
       $.getJSON(
         // Define a URL
         "http://localhost/pos_front_end/aula06_json.php",
+        // Define os dados a serem enviados
+        dadosEnviados,
         // Define a função (o que fazer) com a resposta da requisição
         function(dados){
           // Processamento do retorno que é um objeto JSON...
