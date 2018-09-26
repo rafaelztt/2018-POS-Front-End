@@ -13,47 +13,86 @@
   <script type="text/javascript">
     $(document).ready(function(){
 
+      // $("#consultar").click(function(){
+      //
+      //   // Limpa a div toda vez que clica no consultar
+      //   // para não ficar colocando coisas repetidas
+      //   $("#result").text("");
+      //
+      //   $.getJSON(
+      //     "http://localhost/pos_front_end/aula08_json.php",
+      //     function(dados, status){
+      //         // Como pessoas é uma lista, você precisa dizer a posição desejada
+      //         // alert(dados.pessoas[1].nome);
+      //
+      //         // Laço de repetição em jQuery
+      //         //      lista   função vai executar com a lista
+      //         // A função tem o índice e o objeto
+      //         // $.each( lista, function(indice, objeto){} );
+      //
+      //         $.each( dados.pessoas, function(i, obj){
+      //             // 0: Rafael Henrique
+      //             // alert(i + ": " + obj.nome);
+      //
+      //             // Rafael Henrique (0)
+      //             var html = "<h5>" + obj.nome + " ("+i+") </h5>";
+      //             $("#result").append( html );
+      //
+      //         });
+      //
+      //     }
+      //   );
+      //
+      // });
+
       $("#consultar").click(function(){
 
+        $("#result").text("");
 
         $.getJSON(
           "http://localhost/pos_front_end/aula08_json.php",
           function(dados, status){
 
-              alert(dados.nome);
-          }
-        );
+            $("#result").addClass("my-3 text-info");
+            $("#result").append("<h4>Resposta</h4>");
+            $("#result h4").addClass("text-dark");
 
-      });
+              $.each( dados.pessoas, function(i, obj){
 
-    });
+                  var html = "<h5>" + obj.nome + " ("+i+") </h5>";
+                  $("#result").append( html );
+
+              }); // fim do each
+          }); // fim do getJSON
+      }); // fim do click
+    }); // fim do ready
   </script>
 </head>
 <body>
 
   <!-- define o formato da página -->
-  <div class="container">
+  <div class="container mt-4">
+
+    <h2 class="border-bottom border-primary">Requisições com Ajax</h2>
 
     <!-- cria uma "linha" -->
     <div class="row">
 
-      <div class="col-sm-2">
-        <h4>Menu Principal</h4>
-
-      </div>
-
-      <div class="col-sm">
-        <h3>Cadastro</h3>
+      <div class="col-sm my-3 p-3 border rounded">
+        <h3>Consulta</h3>
 
         <button type="button" id="consultar" class="btn btn-primary">
           Consultar
         </button>
 
-        <div class="" id="result">
-
-        </div>
+        <div id="result"></div>
 
       </div>
+
+      <!-- fim do row -->
+    </div>
+
+    <div class="row">
 
     </div>
 
