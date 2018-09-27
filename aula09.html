@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Aula 09: Envio e recebimento de dados com Ajax</title>
+  <!-- Importar scripts nesta ordem -->
+  <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="js/popper.js" charset="utf-8"></script>
+  <script src="bootstrap/bootstrap.js" charset="utf-8"></script>
+  <!-- Importar o css -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $("#consultar").click(function(){
+
+        // Limpa a div
+        $("#result").text("");
+
+        // faz a requisição
+        // $.getJSON(url,data,success(data,status,xhr))
+        $.getJSON(
+          // URL
+          "http://localhost/pos_front_end/aula09_json.php",
+          // Dados quer enviar
+          // {"chave": "valor", "chave2": "valor2"},
+          {"nome": $("#termo").val()},
+          // Função para tratar retorno
+          function(dados, status){
+
+            if(status == "success"){
+
+              $("#result").addClass("my-3 text-info");
+              $("#result").append("<h4>Resposta</h4>");
+              $("#result h4").addClass("text-dark");
+
+              $.each( dados.pessoas, function(i, obj){
+
+                var html = "<h5>" + obj.nome + " ("+i+") </h5>";
+                $("#result").append( html );
+
+              }); // fim do each
+
+            } else {
+              var conteudo = "<span class='text-danger'>" +
+              "Falha ao receber dados: " + status +
+              "</span>";
+
+              $("#result").html(conteudo);
+            }
+
+          }); // fim do getJSON
+      }); // fim do click
+
+
+      // Divisão
+      // Divisão
+      // Divisão
+
+
+      // Evento ao enviar o formulário
+      $("#formLogin").submit(function(event){
+
+        // Parar o envio do formulário
+        event.preventDefault();
+
+        $.post(
+          // url
+          "http://localhost/pos_front_end/aula09_login.php",
+          // formulário transformado num json
+          $("#formLogin").serialize(),
+          // tratamento do retorno
+          function(dados, status){
+
+            $("#retorno").html(dados);
+
+            // converte dados para json
+            // if(dados.msg == "ok"){
+            //
+            // } else {
+            //
+            // }
+
+        }); // Fim do $.post
+
+      }); // fim do form submit
+
+    }); // fim do ready
+  </script>
+</head>
+<body>
+
+  <!-- define o formato da página -->
+  <div class="container mt-4">
+
+    <h2 class="border-bottom border-primary">Requisições com Ajax</h2>
+
+    <!-- cria uma "linha" -->
+    <div class="row">
+
+      <div class="col-sm my-3 p-3 border rounded">
+        <h3>Consulta</h3>
+
+        <input type="text" id="termo" value="" class="border rounded p-1" />
+
+        <button type="button" id="consultar" class="btn btn-primary">
+          Consultar
+        </button>
+
+        <div id="result"></div>
+
+      </div>
+
+      <!-- fim do row -->
+    </div>
+
+
+    <!-- divisão -->
+    <!-- divisão -->
+    <!-- divisão -->
+
+
+    <div class="row">
+
+      <div class="col-sm border rounded border-dark p-3 my-3">
+
+        <h3>Autenticação</h3>
+
+        <form class="" action="" method="" id="formLogin">
+
+          <label>Login</label><br>
+          <input type="text" name="usuario" value=""><br>
+
+          <label>Senha</label><br>
+          <input type="password" name="senha" value=""><br>
+
+          <input type="submit" value="Entrar" class="btn btn-primary mt-2">
+
+          <div class="my-3" id="retorno"></div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
