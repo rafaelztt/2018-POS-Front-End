@@ -13,6 +13,28 @@
   <script type="text/javascript">
     $(document).ready(function(){
 
+      // ao clicar no botão
+      $("button").click(function(){
+
+        // faz uma requisição para a url do simepar
+        // como não envia dados, e a url é estática (conteúdo não processa requisição)
+        $.get(
+          "http://www.simepar.br/prognozweb/simepar/forecast_by_counties/4118402",
+          function(dados, status){
+
+            // os dados vem com o html inteiro da página
+            // faz uma busca pelo elemento que tem a classe "cc"
+            // porque verifiquei que só tem ela com os dados da cidade
+            var d = $(dados).find(".cc");
+
+            // adiciona na minha div o texto do elemento encontrado no "cc"
+            $("#respSimepar").html( $(d).text() );
+
+          }
+        );
+
+      });
+
       $("#consultar").click(function(){
 
         // Limpa a div
@@ -140,6 +162,21 @@
           <div class="my-3" id="retorno"></div>
 
         </form>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm p-3 border rounded my-3">
+
+        <button type="button" class="btn btn-success">Buscar temperatura</button><br>
+        <br>
+
+        <div class="" id="respSimepar"></div>
+
 
       </div>
 
